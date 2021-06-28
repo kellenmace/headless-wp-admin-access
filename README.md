@@ -2,7 +2,9 @@
 
 This is a WordPress plugin to control access to the WordPress admin.
 
-If the user trying to visit the WordPress admin does not have the capabilities this plugin requires, they will be logged out and sent to the decoupled frontend JS app URL, if set, or otherwise to the WordPress admin login page.
+If the user trying to visit the WordPress admin does not have the capability this plugin requires, they will be logged out and redirected to the decoupled frontend JS app URL, if set, or otherwise to the WordPress admin login page.
+
+The current implementation only allows Administrators to access the WordPress admin, but you can modify the code to target a different role or capability, if desired.
 
 ## Steps to Use
 
