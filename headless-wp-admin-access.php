@@ -17,7 +17,7 @@ class AdminAccess
 {
     public function register_hooks(): void
     {
-        add_action('admin_init', [$this, 'log_out_and_redirect_non_admins']);
+        add_action('auth_redirect', [$this, 'log_out_and_redirect_non_admins']);
     }
 
     /**
@@ -41,8 +41,10 @@ class AdminAccess
         // Otherwise, send them to the admin login page.
         if ($frontend_app_url) {
             wp_redirect($frontend_app_url);
+            exit;
         } else {
             wp_safe_redirect(admin_url());
+            exit;
         }
     }
 
