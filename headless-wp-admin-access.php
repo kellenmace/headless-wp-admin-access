@@ -37,15 +37,15 @@ class AdminAccess
 
         $frontend_app_url = $this->get_frontend_app_url();
 
-        // If a frontend app URL is set, send non-admin user there.
-        // Otherwise, send them to the admin login page.
+        // If a frontend app URL is set, send the user there.
         if ($frontend_app_url) {
             wp_redirect($frontend_app_url);
             exit;
-        } else {
-            wp_safe_redirect(admin_url());
-            exit;
         }
+
+        // Otherwise, send them to the admin login page.
+        wp_safe_redirect(admin_url());
+        exit;
     }
 
     /**
